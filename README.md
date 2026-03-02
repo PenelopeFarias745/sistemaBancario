@@ -69,9 +69,9 @@ O sistema permite:
 ## 🛠️ Tecnologias Utilizadas
 Python 3
 Módulos nativos:
-- abc
-- datetime
-- textwrap
+- `abc`
+- `datetime`
+- `textwrap`
 
 ## 📚 Regras de Negócio Implementadas
 
@@ -102,4 +102,5 @@ Este projeto tem finalidade educacional e foi desenvolvido para praticar:
 - Aplicação de boas práticas de POO
 
 - Simulação de regras de negócio reais
+
 
