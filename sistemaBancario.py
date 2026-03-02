@@ -12,7 +12,7 @@ class Conta():
 
     @classmethod
     def nova_conta(cls, cliente, numero):
-        return cls(cliente, numero)
+        return cls(numero, cliente)
     
     @property
     def saldo(self):
@@ -79,16 +79,16 @@ class PessoaFisica(Cliente):
 class ContaCorrente(Conta):
     def __init__(self, numero, cliente, limite=500, limite_saques=3):
         super().__init__(numero, cliente)
-        self.limite = limite
-        self.limite_saques = limite_saques
+        self._limite = limite
+        self._limite_saques = limite_saques
 
     def sacar(self, valor):
         numero_saques = len(
-            [transacao for transacao in self.historico.transacao if transacao["tipo"] == Saque.__name__]
+            [transacao for transacao in self.historico.transacoes if transacao["tipo"] == Saque.__name__]
         )
 
-        excedeu_limite = valor > self.limite
-        excedeu_saques = numero_saques >= self.limite_saques
+        excedeu_limite = valor > self._limite
+        excedeu_saques = numero_saques >= self._limite_saques
         
         if excedeu_limite:
             print("A operação falhou! O valor do saque excedeu o limite.")
@@ -118,7 +118,7 @@ class Historico:
         self._transacoes = []
 
     @property
-    def transcoes(self):
+    def transacoes(self):
         return self._transacoes
     
     def adicionar_transacao(self, transacao):
@@ -138,7 +138,7 @@ class Transacao(ABC):
         pass
 
 class Saque(Transacao):
-    def __init___(self, valor):
+    def __init__(self, valor):
         self._valor = valor
 
     @property
@@ -153,7 +153,7 @@ class Saque(Transacao):
 
     
 class Deposito(Transacao):
-    def __init___(self, valor):
+    def __init__(self, valor):
         self._valor = valor
 
     @property
