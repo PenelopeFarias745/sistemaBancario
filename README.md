@@ -58,13 +58,13 @@ O sistema permite:
 ---
 
 ## 📋 Menu do Sistema
-[d] Depositar
-[s] Sacar
-[e] Extrato
-[nc] Nova conta
-[lc] Listar contas
-[nu] Novo usuário
-[q] Sair
+- [d] Depositar
+- [s] Sacar
+- [e] Extrato
+- [nc] Nova conta
+- [lc] Listar contas
+- [nu] Novo usuário
+- [q] Sair
 
 ## 🛠️ Tecnologias Utilizadas
 Python 3
@@ -102,3 +102,4 @@ Este projeto tem finalidade educacional e foi desenvolvido para praticar:
 - Aplicação de boas práticas de POO
 
 - Simulação de regras de negócio reais
+
